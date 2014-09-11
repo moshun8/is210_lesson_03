@@ -19,5 +19,6 @@ elif BASE == "Manatee":
     elif ACCENT == "Spartan Sage":
         HIGHLIGHT = raw_input("Fractal White or Not White : ")
 
-print ("Your base color is {0}, your accent is {1}, and your highlight is {2}."
-    ).format(BASE, ACCENT, HIGHLIGHT)
+print (
+    'Your base color is {0}, your accent is {1}, '
+    'and your highlight is {2}.').format(BASE, ACCENT, HIGHLIGHT)
