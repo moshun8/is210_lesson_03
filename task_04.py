@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 """Date and Time"""
 
-DAY = raw_input("What day is it? : ").lower()[slice(0,3)]
-TIME = int(raw_input("What time is it? (ex: 0930): "))
+DAY = raw_input("What day is it? : ").lower()[slice(0, 3)]
+TIME = int(raw_input("What time is it? (ex: 0630): "))
 
-if DAY == 'sat' or 'sun' or TIME > 0600:
-	SNOOZE = True
+if TIME < 600 or DAY == 'sat' or DAY == 'sun': 
+    SNOOZE = True
 else:
-	SNOOZE = False
+    SNOOZE = False
+
+print SNOOZE
