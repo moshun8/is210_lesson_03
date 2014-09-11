@@ -9,6 +9,7 @@ PRINCIPLE = int(raw_input(
     'What is the amount of your principle (amount being borrowed)? '))
 YEARS = int(raw_input("For how many years is this loan being borrowed? "))
 QUALIFIED = raw_input("Are you prequalified for this loan? ").title()
+INTEREST = None
 
 if PRINCIPLE <= 199999:
     if 1 <= YEARS < 15:
