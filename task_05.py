@@ -5,8 +5,8 @@
 from decimal import Decimal
 
 NAME = raw_input("What is your name? ")
-PRINCIPLE = int(raw_input('What is the amount of your principle '
-    '(amount being borrowed)? '))
+PRINCIPLE = int(raw_input(
+    'What is the amount of your principle (amount being borrowed)? '))
 YEARS = int(raw_input("For how many years is this loan being borrowed? "))
 QUALIFIED = raw_input("Are you prequalified for this loan? ").title()
 
@@ -46,8 +46,9 @@ elif PRINCIPLE >= 1000000:
         INTEREST = Decimal('.0262')
 
 TOTAL = PRINCIPLE * (1+(INTEREST/1)) ** YEARS
-REPORT = ('Loan Report for: {0}\n{1}\n\tPrincipal:  ${2:0,.0f}'
-    '\n\tDuration: {3}yrs\n\tPre-Qualified?: {4}\n\n\tTotal: ${5:0,.0f}'
-    ).format(NAME, '-' * 68, PRINCIPLE, YEARS, QUALIFIED, TOTAL)
+REPORT = (
+    'Loan Report for: {0}\n{1}\n\tPrincipal:  ${2:0,.0f}'
+    '\n\tDuration: {3}yrs\n\tPre-Qualified?: {4}\n\n\tTotal: '
+    '${5:0,.0f}').format(NAME, '-' * 68, PRINCIPLE, YEARS, QUALIFIED, TOTAL)
 
 print REPORT
