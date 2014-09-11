@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 """Conditionals with raw_input and blood pressure"""
 
-BP_STATUS = int(raw_input(
-	"What is your blood pressure? : "))
+BP_STATUS = int(raw_input("What is your blood pressure? : "))
 
 if BP_STATUS <= 90:
     BP_STATUS = "Low"
