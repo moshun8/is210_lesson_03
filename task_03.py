@@ -3,8 +3,8 @@
 """Nested statements"""
 
 BASE = raw_input(
-"Please pick between 2 colors - "
-"Seattle Gray or Manatee? : ")
+    "Please pick between 2 colors - "
+    "Seattle Gray or Manatee? : ")
 
 if BASE == "Seattle Gray":
     ACCENT = raw_input("Ceramic Glaze or Cumulus Nimbus : ")
@@ -20,4 +20,4 @@ elif BASE == "Manatee":
         HIGHLIGHT = raw_input("Fractal White or Not White : ")
 
 print ("Your base color is {0}, your accent is {1}, and your highlight is {2}."
-      ).format(BASE, ACCENT, HIGHLIGHT)
+    ).format(BASE, ACCENT, HIGHLIGHT)
