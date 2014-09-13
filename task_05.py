@@ -62,13 +62,17 @@ elif PRINCIPLE >= 1000000:
 else:
     INTEREST = float('0.0')
 
+TOTAL = round(Decimal(PRINCIPLE * (1+(INTEREST/12)) ** (12 * YEARS)))
+
 if INTEREST == float('0.0'):
     TOTAL = None
+    TOT_REPO = None
 else:
-    TOTAL = round(Decimal(PRINCIPLE * (1+(INTEREST/12)) ** (12 * YEARS)))
+    TOT_REPO = ('{0}{1:0,.0f}').format('$', TOTAL)
+    
 
 PRIN_REPO = ('{0}{1:0,.0f}').format('$', PRINCIPLE)
-TOT_REPO = ('{0}{1:0,.0f}').format('$', TOTAL)
+# TOT_REPO = ('{0}{1:0,.0f}').format('$', TOTAL)
 YEAR_REPO = str(YEARS) + "yrs"
 REPORT = (
     'Loan Report for: {0}'
