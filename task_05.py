@@ -14,62 +14,70 @@ INTEREST = 0
 if PRINCIPLE <= 199999:
     if 1 <= YEARS < 15:
         if QUALIFIED == "Yes":
-            INTEREST = Decimal('.0363')
+            INTEREST = float('.0363')
         elif QUALIFIED == "No":
-            INTEREST = Decimal('.0465')
+            INTEREST = float('.0465')
         else:
-            INTEREST = Decimal('0.0')
+            INTEREST = float('0.0')
     elif 15 <= YEARS < 20:
         if QUALIFIED == "Yes":
-            INTEREST = Decimal('.0404')
+            INTEREST = float('.0404')
         elif QUALIFIED == "No":
-            INTEREST = Decimal('.0498')
+            INTEREST = float('.0498')
         else:
-            INTEREST = Decimal('0.0')
+            INTEREST = float('0.0')
     elif 20 <= YEARS <= 30:
         if QUALIFIED == "Yes":
-            INTEREST = Decimal('.0577')
+            INTEREST = float('.0577')
         elif QUALIFIED == "No":
-            INTEREST = Decimal('.0639')
+            INTEREST = float('.0639')
         else:
-            INTEREST = Decimal('0.0')
+            INTEREST = float('0.0')
 elif 200000 <= PRINCIPLE <= 999999:
     if 1 <= YEARS < 15:
         if QUALIFIED == "Yes":
-            INTEREST = Decimal('.0302')
+            INTEREST = float('.0302')
         elif QUALIFIED == "No":
-            INTEREST = Decimal('.0398')
+            INTEREST = float('.0398')
         else:
-            INTEREST = Decimal('0.0')
+            INTEREST = float('0.0')
     elif 15 <= YEARS < 20:
         if QUALIFIED == "Yes":
-            INTEREST = Decimal('.0327')
+            INTEREST = float('.0327')
         elif QUALIFIED == "No":
-            INTEREST = Decimal('.0408')
+            INTEREST = float('.0408')
         else:
-            INTEREST = Decimal('0.0')
+            INTEREST = float('0.0')
     elif 20 <= YEARS <= 30 and QUALIFIED == "Yes":
-        INTEREST = Decimal('.0466')
+        INTEREST = float('.0466')
     else:
-        INTEREST = Decimal('0.0')
+        INTEREST = float('0.0')
 elif PRINCIPLE >= 1000000:
     if 1 <= YEARS < 15 and QUALIFIED == "Yes":
-        INTEREST = Decimal('.0205')
+        INTEREST = float('.0205')
     elif 15 <= YEARS <= 20 and QUALIFIED == "Yes":
-        INTEREST = Decimal('.0262')
+        INTEREST = float('.0262')
     else:
-        INTEREST = Decimal('0.0')
+        INTEREST = float('0.0')
 else:
-    INTEREST = Decimal('0.0')
+    INTEREST = float('0.0')
 
-TOTAL = (PRINCIPLE * (1+(INTEREST/1)) ** YEARS)
+if INTEREST == float('0.0'):
+    TOTAL = None
+else:
+    TOTAL = round(Decimal(PRINCIPLE * (1+(INTEREST/12)) ** (12 * YEARS)))
+
+PRIN_REPO = ('{0}{1:0,.0f}').format('$', PRINCIPLE)
+TOT_REPO = ('{0}{1:0,.0f}').format('$', TOTAL)
+YEAR_REPO = str(YEARS) + "yrs"
 REPORT = (
     'Loan Report for: {0}'
     '\n{1}'
-    '\n\tPrincipal:  ${2:0,.0f}'
-    '\n\tDuration: {3}yrs'
-    '\n\tPre-Qualified?: {4}'
-    '\n\n\tTotal: '
-    '${5:0,.0f}').format(NAME, '-' * 68, PRINCIPLE, YEARS, QUALIFIED, TOTAL)
+    '\n\tPrincipal:        {2}'
+    '\n\tDuration:         {3}'
+    '\n\tPre-Qualified?:   {4}'
+    '\n'
+    '\n\tTotal:            {5}'
+    ).format(NAME, '-' * 68, PRIN_REPO, YEAR_REPO, QUALIFIED, TOT_REPO)
 
 print REPORT
