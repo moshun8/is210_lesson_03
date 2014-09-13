@@ -65,7 +65,7 @@ else:
 TOTAL = round(Decimal(PRINCIPLE * (1+(INTEREST/12)) ** (12 * YEARS)))
 
 if INTEREST == float('0.0'):
-    TOT_REPO = "None"
+    TOT_REPO = None
     TOTAL = None
 else:
     TOT_REPO = str(('{0}{1:0,.0f}').format('$', TOTAL))
