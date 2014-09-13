@@ -64,21 +64,15 @@ else:
 
 TOTAL = round(Decimal(PRINCIPLE * (1+(INTEREST/12)) ** (12 * YEARS)))
 
-#if INTEREST == float('0.0'):
-#    TOT_REPO = "Nothing"
-#    TOTAL = None
-#else:
-#    TOT_REPO = ('{0}{1:0,.0f}').format('$', TOTAL)
-
 if INTEREST == float('0.0'):
     TOT_REPO = "None"
     TOTAL = None
 else:
     TOT_REPO = str(('{0}{1:0,.0f}').format('$', TOTAL))
-
+# this stupid str() format took me forever to figure out!!
 PRIN_REPO = ('{0}{1:0,.0f}').format('$', PRINCIPLE)
-# TOT_REPO = ('{0}{1:0,.0f}').format('$', TOTAL)
 YEAR_REPO = str(YEARS) + "yrs"
+
 REPORT = (
     'Loan Report for: {0}'
     '\n{1}'
