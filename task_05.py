@@ -11,7 +11,7 @@ YEARS = int(raw_input("For how many years is this loan being borrowed? "))
 QUALIFIED = raw_input("Are you prequalified for this loan? ").upper()[:1]
 INTEREST = 0
 
-if PRINCIPLE <= 199999:
+if 0 <= PRINCIPLE <= 199999:
     if 1 <= YEARS <= 15:
         if QUALIFIED == "Y":
             INTEREST = '.0363'
