@@ -4,58 +4,58 @@
 
 from decimal import Decimal
 
-NAME = raw_input("What is your name? ")
+NAME = raw_input("What is your name? ").title()
 PRINCIPLE = int(raw_input(
     'What is the amount of your principle (amount being borrowed)? '))
 YEARS = int(raw_input("For how many years is this loan being borrowed? "))
-QUALIFIED = raw_input("Are you prequalified for this loan? ").title()
+QUALIFIED = raw_input("Are you prequalified for this loan? ").upper()[:1]
 INTEREST = 0
 
 if PRINCIPLE <= 199999:
     if 1 <= YEARS < 15:
-        if QUALIFIED == "Yes":
+        if QUALIFIED == "Y":
             INTEREST = float('.0363')
-        elif QUALIFIED == "No":
+        elif QUALIFIED == "N":
             INTEREST = float('.0465')
         else:
             INTEREST = float('0.0')
     elif 15 <= YEARS < 20:
-        if QUALIFIED == "Yes":
+        if QUALIFIED == "Y":
             INTEREST = float('.0404')
-        elif QUALIFIED == "No":
+        elif QUALIFIED == "N":
             INTEREST = float('.0498')
         else:
             INTEREST = float('0.0')
     elif 20 <= YEARS <= 30:
-        if QUALIFIED == "Yes":
+        if QUALIFIED == "Y":
             INTEREST = float('.0577')
-        elif QUALIFIED == "No":
+        elif QUALIFIED == "N":
             INTEREST = float('.0639')
         else:
             INTEREST = float('0.0')
 elif 200000 <= PRINCIPLE <= 999999:
     if 1 <= YEARS < 15:
-        if QUALIFIED == "Yes":
+        if QUALIFIED == "Y":
             INTEREST = float('.0302')
-        elif QUALIFIED == "No":
+        elif QUALIFIED == "N":
             INTEREST = float('.0398')
         else:
             INTEREST = float('0.0')
     elif 15 <= YEARS < 20:
-        if QUALIFIED == "Yes":
+        if QUALIFIED == "Y":
             INTEREST = float('.0327')
-        elif QUALIFIED == "No":
+        elif QUALIFIED == "N":
             INTEREST = float('.0408')
         else:
             INTEREST = float('0.0')
-    elif 20 <= YEARS <= 30 and QUALIFIED == "Yes":
+    elif 20 <= YEARS <= 30 and QUALIFIED == "Y":
         INTEREST = float('.0466')
     else:
         INTEREST = float('0.0')
 elif PRINCIPLE >= 1000000:
-    if 1 <= YEARS < 15 and QUALIFIED == "Yes":
+    if 1 <= YEARS < 15 and QUALIFIED == "Y":
         INTEREST = float('.0205')
-    elif 15 <= YEARS <= 20 and QUALIFIED == "Yes":
+    elif 15 <= YEARS <= 20 and QUALIFIED == "Y":
         INTEREST = float('.0262')
     else:
         INTEREST = float('0.0')
@@ -68,10 +68,15 @@ if INTEREST == float('0.0'):
     TOT_REPO = None
     TOTAL = None
 else:
-    TOT_REPO = str(('{0}{1:0,.0f}').format('$', TOTAL))
-# this stupid str() format took me forever to figure out!!
-PRIN_REPO = ('{0}{1:0,.0f}').format('$', PRINCIPLE)
+    TOT_REPO = str('{0}{1:0,.0f}'.format('$', TOTAL))
+
+PRIN_REPO = '{0}{1:0,.0f}'.format('$', PRINCIPLE)
 YEAR_REPO = str(YEARS) + "yrs"
+
+if QUALIFIED == 'Y':
+    QUALIFIED = 'Yes'
+else:
+    QUALIFIED = 'No'
 
 REPORT = (
     'Loan Report for: {0}'
