@@ -62,7 +62,8 @@ elif PRINCIPLE >= 1000000:
 else:
     INTEREST = float('0.0')
 
-TOTAL = round(Decimal(PRINCIPLE * (1+(INTEREST/12)) ** (12 * YEARS)))
+TOTAL = Decimal(PRINCIPLE * (1+(INTEREST/12)) ** (12 * YEARS))
+TOTAL = round(TOTAL)
 
 if INTEREST == float('0.0'):
     TOT_REPO = None
