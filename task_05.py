@@ -62,6 +62,10 @@ elif PRINCIPLE >= 1000000:
 else:
     INTEREST = float('0.0')
 
+PRINCIPLE = Decimal(PRINCIPLE)
+INTEREST = Decimal(INTEREST)
+YEARS = Decimal(YEARS)
+
 TOTAL = Decimal(PRINCIPLE * (1+(INTEREST/12)) ** (12 * YEARS))
 TOTAL = round(TOTAL)
 
