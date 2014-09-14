@@ -65,8 +65,9 @@ else:
 PRINCIPLE = Decimal(PRINCIPLE)
 INTEREST = Decimal(INTEREST)
 YEARS = Decimal(YEARS)
+PY = Decimal(12)
 
-TOTAL = Decimal(PRINCIPLE * (1+(INTEREST/12)) ** (12 * YEARS))
+TOTAL = Decimal(PRINCIPLE * (1+(INTEREST/PY)) ** (PY * YEARS))
 TOTAL = round(TOTAL)
 
 if INTEREST == float('0.0'):
