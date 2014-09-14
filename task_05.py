@@ -74,9 +74,9 @@ if INTEREST == float('0.0'):
     TOT_REPO = None
     TOTAL = None
 else:
-    TOT_REPO = str('{0}{1:0,.0f}'.format('$', TOTAL))
+    TOT_REPO = str('{0}{1:,.0f}'.format('$', TOTAL))
 
-PRIN_REPO = '{0}{1:0,.0f}'.format('$', PRINCIPLE)
+PRIN_REPO = '{0}{1:,.0f}'.format('$', PRINCIPLE)
 YEAR_REPO = str(YEARS) + "yrs"
 
 if QUALIFIED == 'Y':
